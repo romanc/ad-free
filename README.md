@@ -1,6 +1,6 @@
 # Ad-free
 
-Simple tools for everyone - no adds. Checkout [cattaneo.coffee/ad-free](https://cattaneo.coffee/ad-free).
+Simple tools for everyone - no adds.
 
 ## Which tools are planed?
 
