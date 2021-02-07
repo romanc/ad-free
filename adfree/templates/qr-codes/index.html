@@ -8,16 +8,20 @@
 
 <p>Use the form below to create QR codes with custom contents.</p>
 
+{% for message in get_flashed_messages() %}
+	<div class="flash"><p>{{ message }}</p></div>
+{% endfor %}
+
 <section>
 	<h2>Form</h2>
-	<form method="post" action="#">
+	<form method="post">
 		<div class="row gtr-uniform">
 			<div class="col-12">
-				<div class="textarea-wrapper"><textarea name="demo-message" id="demo-message" placeholder="Enter QR code contents" rows="1" style="overflow: hidden; resize: none; height: 59px;"></textarea></div>
+				<div class="textarea-wrapper"><textarea name="content" id="content" placeholder="Enter QR code contents" rows="1" style="overflow: hidden; resize: none; height: 59px;">{{ request.form['content'] }}</textarea></div>
 			</div>
 			<div class="col-6 col-12-small">
-				<input type="checkbox" id="demo-human" name="demo-human" checked="">
-				<label for="demo-human">Not a robot</label>
+				<input type="checkbox" id="human" name="human"b>
+				<label for="human">Not a robot</label>
 			</div>
 			<div class="col-6 col-12-small">
 				<ul class="actions">
