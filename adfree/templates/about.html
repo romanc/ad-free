@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+{% block content %}
+<h1>About</h1>
+
+<span class="image main">
+	<img src="{{ url_for('static', filename='images/pic13.jpg') }}" alt="" />
+</span>
+
+<p>Our mission is bla blub ...</p>
+
+<h2>Third-party software</h2>
+
+<ul>
+	<li>qrcode generation: python/qrcodes</li>
+	<li>merging pdfs</li>
+	<li>youtube-dl</li>
+	<li>Website design: html5up</li>
+</ul>
+
+{% endblock %}

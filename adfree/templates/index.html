@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<header>
+	<h1>Ad-free // Simple tools for everyone</h1>
+	<p>This website provides free and easy-to-use tools for everyone. No ads - promised!</p>
+</header>
+<section class="tiles">
+	<article class="style1">
+		<span class="image">
+			<img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" />
+		</span>
+		<a href="{{ url_for('qrcodes.index') }}">
+			<h2>qr-codes</h2>
+			<div class="content">
+				<p>Create qr-codes from your input.</p>
+			</div>
+		</a>
+	</article>
+	<article class="style2">
+		<span class="image">
+			<img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" />
+		</span>
+		<a href="{{ url_for('pdfmerge.index') }}">
+			<h2>pdf-merge</h2>
+			<div class="content">
+				<p>Merge multiple pdfs - in your browser.</p>
+			</div>
+		</a>
+	</article>
+	<article class="style3">
+		<span class="image">
+			<img src="{{ url_for('static', filename='images/pic03.jpg') }}" alt="" />
+		</span>
+		<a href="{{ url_for('youtubedl.index') }}">
+			<h2>youtube-dl</h2>
+			<div class="content">
+				<p>Easy youtube downloads.</p>
+			</div>
+		</a>
+	</article>
+
+{% endblock %}
+
