@@ -1,6 +1,7 @@
 venv/
 
 dev.run
+instance/
 
 *.pyc
 __pycache__/
