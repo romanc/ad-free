@@ -4,28 +4,42 @@
 
 {% block content %}
 
-<p>Use the form below to download videos.</p>
+{% if file %}
+<div>
+	<h2>Your file is ready</h2>
+	<p><a href="{{ url_for('youtubedl.static', filename=file) }}">Download</a></p>
+</div>
+{% endif %}
 
 {% for message in get_flashed_messages() %}
-	<div class="flash"><p>{{ message }}</p></div>
+	<div>
+		<p style="padding: 0.5em; background-color: rgba(255,0,0,0.5); border: 2px solid darkred;">
+		{{ message }}
+		</p>
+	</div>
 {% endfor %}
 
+<p>Use the form below to download videos. There's no progress indication. For longer videos, please be patient.</p>
+
 <section>
-	<h2>Form</h2>
 	<form method="post">
+		{{ form.csrf_token }}
+
 		<div class="row gtr-uniform">
 			<div class="col-12">
-				<input type="text" name="link" id="link" value="{{ request.form['link'] }}" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+				{{ form.link.label }}
+				{{ form.link }}
 			</div>
-			<div class="col-6 col-12-small">
-				<input type="checkbox" id="human" name="human">
-				<label for="human">Not a robot</label>
+			<div class="col-12">
+				{{ form.recaptcha.label }}
+				{{ form.recaptcha}}
 			</div>
-			<div class="col-6 col-12-small">
+			<div class="col-12">
 				<ul class="actions">
-					<li><input type="submit" value="Generate QR code" class="primary"></li>
+					<li>{{ form.submit }}</li>
 					<li><input type="reset" value="Reset"></li>
 				</ul>
+				<p>* required fields</p>
 			</div>
 		</div>
 	</form>
