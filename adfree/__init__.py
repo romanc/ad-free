@@ -1,6 +1,5 @@
-import os
-
 from flask import Flask, render_template
+from os import makedirs
 
 
 def create_app(test_config=None):
@@ -18,7 +17,7 @@ def create_app(test_config=None):
 
     # ensure the instance folder exists
     try:
-        os.makedirs(app.instance_path)
+        makedirs(app.instance_path)
     except OSError:
         pass
 

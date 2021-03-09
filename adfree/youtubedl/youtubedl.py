@@ -1,10 +1,8 @@
-from flask import (
-    Blueprint, flash, g, redirect, render_template, request, url_for
-)
-import os
 from adfree.forms import YTForm
-from youtube_dl import YoutubeDL
+from flask import Blueprint, flash, render_template
+from os import makedirs
 from pathlib import Path
+from youtube_dl import YoutubeDL
 
 bp = Blueprint('youtubedl', __name__,
                url_prefix='/youtube-dl',
@@ -18,7 +16,7 @@ def index():
 
     try:
         p = Path(bp.root_path) / "downloads"
-        os.makedirs(p)
+        makedirs(p)
     except OSError:
         pass
 

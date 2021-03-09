@@ -1,9 +1,7 @@
-from flask import (
-    Blueprint, flash, render_template, request, send_file
-)
-from io import BytesIO
-import qrcode
 from adfree.forms import QRCodeForm
+from flask import Blueprint, render_template, send_file
+from io import BytesIO
+from qrcode import make as generateQRCode
 
 bp = Blueprint('qrcodes', __name__, url_prefix='/qr-codes')
 
@@ -16,7 +14,7 @@ def index():
         content = form.content.data
 
         # generate qr code
-        img = qrcode.make(content)
+        img = generateQRCode(content)
         # save to image and serve as attachement
         img_io = BytesIO()
         img.save(img_io, 'png')

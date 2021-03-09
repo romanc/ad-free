@@ -1,6 +1,4 @@
-from flask import (
-    Blueprint, flash, g, redirect, render_template, request, url_for
-)
+from flask import Blueprint, render_template
 
 bp = Blueprint('pdfmerge', __name__, url_prefix='/pdf-merge')
 
